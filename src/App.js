@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios';
-import photoCard from './components/photoCard';
+import Photocard from './components/photoCard';
+import Image from './components/Image';
+import Date from './components/Date';
+import Copyright from './components/Copyright';
+
 
 function App() {
   const[data, setData] = useState([]);
@@ -16,13 +20,10 @@ function App() {
   },[]);
   return (
     <div className="App">
-      <h3>Shawn's Page. I think I did it.</h3>
-      <photoCard title = {data.title}
-        url = {data.url}
-        explaination = {data.explaination}
-        date = {data.date}
-        copy = {data.copyright}
-        />
+      <Image url={data.url}/>
+      <Photocard title = {data.title}/>
+      <Date date = {data.date} />
+      <Copyright copy = {data.copyright}/>
     </div>
   );
 }
